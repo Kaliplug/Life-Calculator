@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Life Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="@kaliplug">
+    <meta name="description" content="Life Calculator">
+
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: black;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        h2, h3, p {
+            color: red;
+        }
+
+        h2 {
+            text-transform: uppercase;
+        }
+
+        #result {
+            border: none;
+            margin: 0px auto;
+            padding: 0px;
+            color: red;
+            word-spacing: 4px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #disresult {
+            margin: 10px auto;
+            border: 1px solid white;
+            background-color: white;
+            padding: 1vw;
+            width: 800px;
+        }
+
+        img {
+            height: 320px;
+            width: 240px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        button {
+            padding: 8px 30px 8px 30px;
+            margin: 0px 30px 0px 0px;
+            font-size: 2vw;
+            border: none;
+        }
+
+
+
+        button:hover {
+            background-color: blue;
+            color: red;
+        }
+
+        .button1 {
+            background-color: red;
+            color: white;
+        }
+    
+    h1 {
+        color: blue;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>Life Calculator</h2>
+
+    <img src="images/saynotorape-bg.jpeg" />
+
+    <h3>Ever wonder what it's like if the death god really exists?</h3>
+    <h3>Well here's your chance to find out <strong>Warning: Not for the faint-hearted!!!</strong></h3>
+    <p>Click enter to know the number of years you have left.</p>
+    
+    <div id="buttons">
+        <button onclick="disCalculator()" class="button1">Enter</button>
+        <button onclick="restart()" class="button2">Restart</button>
+    </div>
+
+    <div id="disresult">
+        <p id="result"></p>
+    </div>
+
+    <h1 id="greet"></h1>
+
+<script>
+    function disCalculator() {
+        var age = prompt("Enter your age:");
+        var number = (Math.random() * 10) + 1;
+
+        if (age < 5) {
+            live = Math.round((age / number) + 85);
+            var life = "You have " + live + " number of years left in you. Use it wisely";
+        } else if (age > 5 && age < 15) {
+            live = Math.round((age / number) + 65);
+            var life = "You have " + live + " number of years left. Enjoy it. YOLO!!!";
+        } else if (age > 15 && age < 30) {
+            live = Math.round((age / number) + 50);
+            var life = "You have " + live + " number of years left. Act gently.";
+        } else if (age > 30 && age < 45) {
+            live = Math.round((age / number) + 25);
+            var life = "You have " + live + " number of years left.";
+        } else if (isNaN(age)) {
+            var life = "Input must be a number";
+        } else if (age > 75) {
+            var life = "Duh!!! You're already too old";
+        } else {
+            live = Math.round((age / number) + 10);
+            var life = "You have " + live + " number of years left. Be thankful!";
+        }
+    document.getElementById("result").innerHTML = life;
+    }
+
+
+    function restart() {
+        document.getElementById("result").innerHTML = "";
+    }
+
+    const dat = new Date().getHours();
+    const ele = document.getElementById("greet");
+
+    if (new Date().getHours() > 0 && new Date().getHours < 12) {
+        ele.innerHTML = "Good";
+    }
+    else if (new Date().getHours() < 17) {
+        ele.innerHTML = "Better";
+    }
+    else {
+        ele.innerHTML = "Best";
+    }
+    
+</script>
+</body>
+</html>
